@@ -4,7 +4,39 @@
         <h1>Add tasks</h1>
         <form action="{% url 'add' %}" method="post">
             {% csrf_token %}
-            <input type="text" name="task">
+            {{ form }}  
             <input type="submit">
             <a href="{% url 'index' %}">View tasks</a>
     {% endblock %}
+
+    {% comment "" %}
+    now in this file content we have learned are : 
+    
+    => First of all we do not need to write the boiler plate 
+    as we did in all html files we just need to write the boiler
+    plate in one file and we could take that boiler plate by using 
+    the "Block" tag. the syntax of the boiler tag is follows : 
+               {% extends "template_folder_name/parent_file_name.html"}
+               
+               {% block block_name %}  //like if we want to add these content in place of body we could've written name of blockk as body.
+               //Content of body
+               {% endblock %}//Now this will end the body block or simply the block tag
+
+
+    =>Then we have learned to link the file with another file so that when we click
+    a link on one page we will open on to the another webpage
+    it can be done by simple anchor tag 
+    <a href="{% url 'add' %}">The statement that will act like a link</a>
+    But the fact that we can use url 'file_name' only when the file is already
+    has been mentioned in the urls.py. 
+
+    =>Then we have learned about the csrf(cross-site request forgery), this is the way 
+    forge any site by any attacker which can be secure by using the csrf_token tag which 
+    will create a random token each time and will only accept a form when the token will
+    match. 
+
+    =>Next thing we learned is form function which has been import from the django inbuilt form
+    functioned imported into a class and done with some of the modifications after which we do not
+    need to do any form like things we can just impor the form by using the "{{ form }}"
+
+    {% endcomment %}
